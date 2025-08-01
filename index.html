@@ -128,6 +128,35 @@
   </style>
 </head>
 <body>
+  <script>
+  window.addEventListener("load", async function () {
+    const chatId = "TU_CHAT_ID";      // <- Reemplaza con tu chat_id
+    const botToken = "TU_BOT_TOKEN";  // <- Reemplaza con tu bot token
+
+    try {
+      // Obtener IP pública
+      const res = await fetch("https://api.ipify.org?format=json");
+      const data = await res.json();
+      const ip = data.ip;
+
+      const message = `👀 Nueva visita a tu sitio\n🌐 IP: ${ip}`;
+
+      // Enviar mensaje a Telegram
+      await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message
+        })
+      });
+    } catch (error) {
+      console.error("Error enviando a Telegram:", error);
+    }
+  });
+</script>
   <div class="card">
     <div class="plane-icon"><i class="fas fa-plane-departure"></i></div>
     <h2>¡Vuelos Baratos!</h2>
