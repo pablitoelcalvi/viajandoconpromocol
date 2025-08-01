@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vuelos Baratos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: backgroundShift 10s infinite alternate linear;
+      background: linear-gradient(-45deg, #511281, #C20078, #1B1464, #C20078);
+      background-size: 400% 400%;
+    }
+
+    @keyframes backgroundShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 24px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+      padding: 40px 30px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 1.2s ease forwards;
+      transform: translateY(50px);
+      opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card h2 {
+      color: #511281;
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 18px;
+      color: #444;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #C20078, #511281);
+      color: white;
+      padding: 14px 36px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn i {
+      transition: transform 0.4s ease;
+    }
+
+    .btn:hover i {
+      transform: translateX(8px) rotate(-10deg);
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, #7e0073, #37035f);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transform: scale(1.05);
+    }
+
+    .plane-icon {
+      font-size: 48px;
+      color: #C20078;
+      animation: floatPlane 3s infinite ease-in-out;
+      margin-bottom: 20px;
+    }
+
+    @keyframes floatPlane {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(-3deg); }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 30px 20px;
+      }
+
+      .card h2 {
+        font-size: 24px;
+      }
+
+      .card p {
+        font-size: 16px;
+      }
+
+      .btn {
+        padding: 12px 28px;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="plane-icon"><i class="fas fa-plane-departure"></i></div>
+    <h2>¡Vuelos Baratos!</h2>
+    <p>Destinos nacionales desde <strong>$49.900</strong></p>
+    <a href="" class="btn">
+      Comprar aquí <i class="fas fa-plane"></i>
+    </a>
+  </div>
+</body>
+</html>
